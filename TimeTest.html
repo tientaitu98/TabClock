@@ -59,40 +59,54 @@
 	</h1>
 
 	<h3><div>Font color</div></h3>
-	<button id="changeGreen">Green</button>
-	<button id="changeRed">Red</button>
-	<button id="changeBlack">Black</button>
-	<button id="changeOrange">Orange</button> <br>
+	<button id="fontGreen">Green</button>
+	<button id="fontRed">Red</button>
+	<button id="fontBlack">Black</button>
+	<button id="fontOrange">Orange</button> <br>
 
 	<h3><div>Background color</div></h3>
-	<button id="changeGreen">Green</button>
-	<button id="changeRed">Red</button>
-	<button id="changeBlack">Black</button>
-	<button id="changeOrange">Orange</button> <br>
+	<button id="backSkin">Skin</button>
+	<button id="backDeepPurple">DeepPurple</button>
+	<button id="backDeepBlue">DeepBlue</button>
+	<button id="backBlack">Black</button> <br>
 
 	<h3><div>Source Code:</div></h3>
 
 	<script>
 
-		document.getElementById("changeGreen").onclick = function(){
-			document.getElementById("clock").style.color = "#329932";
-			document.getElementById("author").style.color = "#329932";
+		document.getElementById("fontGreen").onclick = function(){
+			document.getElementById("clock").style.color = "#54DF48";
+			document.getElementById("author").style.color = "#54DF48";
 		}
 
-		document.getElementById("changeRed").onclick = function(){
+		document.getElementById("fontRed").onclick = function(){
 			document.getElementById("clock").style.color = 'red';
 			document.getElementById("author").style.color = 'red';
 		}
 
-		document.getElementById("changeBlack").onclick = function(){
+		document.getElementById("fontBlack").onclick = function(){
 			document.getElementById("clock").style.color = "#000000";
 			document.getElementById("author").style.color = "#000000";
 		}
 
-		document.getElementById("changeOrange").onclick = function(){
+		document.getElementById("fontOrange").onclick = function(){
 			document.getElementById("clock").style.color = "#FFA500";
 			document.getElementById("author").style.color = "#FFA500";
 		}
+
+		document.getElementById("backSkin").onclick = function() {
+  		document.body.style.background = "#fbebcd";
+  		}
+  		document.getElementById("backDeepPurple").onclick = function() {
+  		document.body.style.background = "#684174";
+  		}
+  		document.getElementById("backDeepBlue").onclick = function() {
+  		document.body.style.background = "#282A5A";
+  		}
+  		document.getElementById("backBlack").onclick = function() {
+  		document.body.style.background = "#000000";
+  		}
+
 	</script>
 
 </body>
