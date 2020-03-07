@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)chrome-search://local-ntp/local-ntp.html -->
+<html lang="vi" dir="ltr" class="inited">
+
+<head>
+   	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+   	<script type="text/javascript">
+   		document.title = "Load...";
+      function time() {
+      var today = new Date();
+      var weekday=new Array(7);
+      weekday[0]="Sun";
+      weekday[1]="Mon";
+      weekday[2]="Tue";
+      weekday[3]="Wed";
+      weekday[4]="Thu";
+      weekday[5]="Fri";
+      weekday[6]="Sat";
+      var day = weekday[today.getDay()];
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!
+      var yyyy = today.getFullYear();
+      var h=today.getHours();
+      var m=today.getMinutes();
+      var s=today.getSeconds();
+      m=checkTime(m);
+      s=checkTime(s);
+      nowTime = h+":"+m+":"+s;
+      if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = day+', '+ dd+'/'+mm+'/'+yyyy;
+
+      tmp= '<span class="date">'+today+' <br> '+nowTime+'</span>';
+      document.getElementById("clock").innerHTML=tmp;
+
+      document.title = nowTime;
+
+      clocktime=setTimeout("time()","1000","JavaScript");
+      function checkTime(i)
+      {
+         if(i<10){
+        i="0" + i;
+         }
+         return i;
+      }
+   }
+   </script>
+
+</head>
+	
+<body 
+    onload="time()">
+    <h2>
+    	<div id="author"> <br> Clocktab by Nguyen Duc Tien </div>
+	</h2>
+
+	<h1>
+	  	<div id="clock" ></div>
+	</h1>
+
+	<h3><div>Font color</div></h3>
+	<button id="changeGreen">Green</button>
+	<button id="changeRed">Red</button>
+	<button id="changeBlack">Black</button>
+	<button id="changeOrange">Orange</button> <br>
+
+	<h3><div>Background color</div></h3>
+	<button id="changeGreen">Green</button>
+	<button id="changeRed">Red</button>
+	<button id="changeBlack">Black</button>
+	<button id="changeOrange">Orange</button> <br>
+
+	<h3><div>Source Code:</div></h3>
+
+	<script>
+
+		document.getElementById("changeGreen").onclick = function(){
+			document.getElementById("clock").style.color = "#329932";
+			document.getElementById("author").style.color = "#329932";
+		}
+
+		document.getElementById("changeRed").onclick = function(){
+			document.getElementById("clock").style.color = 'red';
+			document.getElementById("author").style.color = 'red';
+		}
+
+		document.getElementById("changeBlack").onclick = function(){
+			document.getElementById("clock").style.color = "#000000";
+			document.getElementById("author").style.color = "#000000";
+		}
+
+		document.getElementById("changeOrange").onclick = function(){
+			document.getElementById("clock").style.color = "#FFA500";
+			document.getElementById("author").style.color = "#FFA500";
+		}
+	</script>
+
+</body>
+   
+</html>
