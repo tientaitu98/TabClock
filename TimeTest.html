@@ -6,9 +6,15 @@
    	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
+      
    	<script type="text/javascript">
-   		document.title = "Load...";
+      var pageTitle = 1;
+      document.title = pageTitle;
+      var sWatch = 0;
+      var tmpClock = "";
+      var formatted = "";  
       function time() {
+      sWatch+=1;  
       var today = new Date();
       var weekday=new Array(7);
       weekday[0]="Sun";
@@ -22,26 +28,62 @@
       var dd = today.getDate();
       var mm = today.getMonth()+1; //January is 0!
       var yyyy = today.getFullYear();
+
       var h=today.getHours();
       var m=today.getMinutes();
       var s=today.getSeconds();
-      m=checkTime(m);
-      s=checkTime(s);
+
+      m = checkTime(m);
+      s = checkTime(s);
       nowTime = h+":"+m+":"+s;
+
       if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = day+', '+ dd+'/'+mm+'/'+yyyy;
 
-      tmp= '<span class="date">'+today+' <br> '+nowTime+'</span>';
-      document.getElementById("clock").innerHTML=tmp;
+      tmpClock = '<span class="date">'+today+' <br> '+nowTime+'</span>';
 
-      document.title = nowTime;
+      document.getElementById("clock").innerHTML=tmpClock;
+
+      var hours = Math.floor(sWatch / 60 / 60);
+      var minutes = Math.floor(sWatch / 60) - (hours * 60);
+      var seconds = sWatch % 60;
+
+      hours = checkTime(hours);
+      minutes = checkTime(minutes);
+      seconds = checkTime(seconds);
+
+      formatted = hours + ':' + minutes + ':' + seconds;
+
+      document.getElementById("stopWatch").innerHTML=formatted;
+
+      switch (pageTitle)
+      {
+        case 1:
+        {
+          document.title = nowTime;
+          break;
+        }
+        case 2:
+        {
+          document.title = formatted;
+          break;
+        }
+        default:
+        {
+          document.title = "Load...";
+          break;
+        }
+      }
 
       clocktime=setTimeout("time()","1000","JavaScript");
+
       function checkTime(i)
       {
-         if(i<10){
-        i="0" + i;
+         if(i < 10)
+         {
+          i ="0" + i;
          }
          return i;
+
       }
    }
    </script>
@@ -49,12 +91,13 @@
 </head>
 	
 <body onload="time()">
-    <h2>
+  <h2>
     	<div id="author"> Clocktab by Nguyen Duc Tien </div>
 	</h2>
 
 	<h1>
 	  	<div id="clock" ></div>
+      <div id="stopWatch" ></div>
 	</h1>
 
 	<h3><div id stringFc>Font color</div></h3>
@@ -69,6 +112,10 @@
 	<button id="backDeepBlue">DeepBlue</button>
 	<button id="backBlack">Black</button> <br>
 
+  <h3><div id stringMode>Clock Mode</div></h3>
+  <button id="bTimer">Timer</button>
+  <button id="bStopWatch">Stop Watch</button>
+
 	<h3><div id stringSc>Source Code: https://github.com/tientaitu98/TabClock</div></h3>
 
 	<script>
@@ -76,36 +123,49 @@
 		document.getElementById("fontGreen").onclick = function(){
 			document.getElementById("clock").style.color = "#54DF48";
 			document.getElementById("author").style.color = "#54DF48";
+      document.getElementById("stopWatch").style.color = "#54DF48";
 		}
 
 		document.getElementById("fontRed").onclick = function(){
 			document.getElementById("clock").style.color = 'red';
 			document.getElementById("author").style.color = 'red';
+      document.getElementById("stopWatch").style.color = "red";
 		}
 
 		document.getElementById("fontBlack").onclick = function(){
 			document.getElementById("clock").style.color = "#000000";
 			document.getElementById("author").style.color = "#000000";
+      document.getElementById("stopWatch").style.color = "#000000";
+
 		}
 
 		document.getElementById("fontOrange").onclick = function(){
 			document.getElementById("clock").style.color = "#FFA500";
 			document.getElementById("author").style.color = "#FFA500";
+      document.getElementById("stopWatch").style.color = "#FFA500";
 		}
 
 		document.getElementById("backSkin").onclick = function() {
   		document.body.style.background = "#fbebcd";
   		}
-  		document.getElementById("backDeepPurple").onclick = function() {
+
+  	document.getElementById("backDeepPurple").onclick = function() {
   		document.body.style.background = "#684174";
   		}
-  		document.getElementById("backDeepBlue").onclick = function() {
+  	document.getElementById("backDeepBlue").onclick = function() {
   		document.body.style.background = "#282A5A";
   		}
-  		document.getElementById("backBlack").onclick = function() {
+  	document.getElementById("backBlack").onclick = function() {
   		document.body.style.background = "#000000";
   		}
 
+    document.getElementById("bTimer").onclick = function(){
+      pageTitle =  1;
+    }
+
+    document.getElementById("bStopWatch").onclick = function(){
+      pageTitle =  2;
+    }  
 	</script>
 
 </body>
