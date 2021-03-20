@@ -51,7 +51,7 @@
         minutes = checkTime(minutes);
         seconds = checkTime(seconds);
 
-        formatted = hours + ':' + minutes + ':' + seconds;
+        formatted = hours + ':' + minutes;
 
         document.getElementById("stopWatch").innerHTML=formatted;
 
@@ -74,7 +74,7 @@
           }
         }
 
-        clocktime=setTimeout("time()","1000","JavaScript");
+        clocktime=setTimeout("time()","60000","JavaScript");
 
         function checkTime(i)
         {
@@ -102,14 +102,14 @@
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
       // Output the result in an element with id="demo"
       document.getElementById("countDownDate").innerHTML = days + " days " + hours + ":"
-        + minutes + ":" + seconds + " to Latex end";
+        + minutes + " to Latex end";
 
       // If the count down is over, write some text 
       if (distance < 0) {
         clearInterval(x);
         document.getElementById("countDownDate").innerHTML = "EXPIRED";
       }
-    }, 1000);
+    }, 60000);
 
     </script>
 
