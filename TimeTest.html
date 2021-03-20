@@ -35,7 +35,7 @@
 
         m = checkTime(m);
         s = checkTime(s);
-        nowTime = h+":"+m+":"+s;
+        nowTime = h+":"+m;
 
         if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = day+', '+ dd+'/'+mm+'/'+yyyy;
 
@@ -74,7 +74,7 @@
           }
         }
 
-        clocktime=setTimeout("time()","60000","JavaScript");
+        clocktime=setTimeout("time()","10000","JavaScript");
 
         function checkTime(i)
         {
@@ -109,7 +109,7 @@
         clearInterval(x);
         document.getElementById("countDownDate").innerHTML = "EXPIRED";
       }
-    }, 60000);
+    }, 5000);
 
     </script>
 
