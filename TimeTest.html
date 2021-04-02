@@ -88,7 +88,7 @@
     }
 
     // Set the date we're counting down to
-    var countDownDate = new Date("Apr 01, 2021 00:00:00").getTime();
+    var countDownDate = new Date("May , 2021 00:00:00").getTime();
     // Update the count down every 1 second
     var x = setInterval(function() {
       // Get today's date and time
@@ -102,7 +102,7 @@
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
       // Output the result in an element with id="demo"
       document.getElementById("countDownDate").innerHTML = days + " days " + hours + ":"
-        + minutes + ":" + seconds + " to Latex end";
+        + minutes + ":" + seconds + " to PPL end";
 
       // If the count down is over, write some text 
       if (distance < 0) {
